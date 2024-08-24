@@ -1,0 +1,129 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f3f1f1;
+}
+
+header {
+    background-color: rgb(4, 28, 240);
+    color: rgb(7, 8, 6);
+    padding: 10px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav {
+    margin: 10px 0;
+}
+
+.social-btn {
+    color: rgb(150, 1, 250);
+    background-color: #ebf0f5;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 0 5px;
+}
+
+.social-btn:hover {
+    background-color: #26d45a;
+}
+
+#cart {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+#cart-btn {
+    background-color: #1dee0a;
+    border: none;
+    padding: 10px 20px;
+    color: rgb(7, 6, 6);
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#cart-btn:hover {
+    background-color: #43b94c;
+}
+
+main {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+#menu {
+    width: 60%;
+}
+
+.category {
+    margin-bottom: 20px;
+}
+
+.menu-item {
+    background-color: rgb(241, 245, 240);
+    border: 1px solid rgb(8, 7, 7);
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.menu-item h4 {
+    margin-top: 0;
+}
+
+.add-to-cart {
+    background-color: #08f710;
+    color: rgb(10, 7, 7);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.add-to-cart:hover {
+    background-color: #388e3c;
+}
+
+#cart-details {
+    width: 30%;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#cart-items {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#cart-items li {
+    border-bottom: 1px solid #ddd;
+    padding: 5px 0;
+}
+
+#checkout-btn {
+    background-color: #ff5722;
+    border: none;
+    padding: 10px;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 16px;
+}
+
+#checkout-btn:hover {
+    background-color: #080807;
+}
