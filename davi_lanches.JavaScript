@@ -1,23 +1,55 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const cart = [];
-  const cartCountElem = document.getElementById('cart-count');
-  const cartItemsElem = document.getElementById('cart-items');
-  const cartTotalElem = document.getElementById('cart-total');
+  const tabs = document.querySelectorAll('.tab-link');
+  const tabContents = document.querySelectorAll('.tab-content');
 
-  document.querySelectorAll('.add-to-cart').forEach(button => {
-    button.addEventListener('click', () => {
-      const menuItem = button.closest('.menu-item');
-      const id = menuItem.getAttribute('data-id');
-      const name = menuItem.getAttribute('data-name');
-      const price = parseFloat(menuItem.getAttribute('data-price'));
+  tabs.forEach(tab => {
+    tab.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = tab.getAttribute('data-tab');
 
-      // Adiciona o item ao carrinho
-      cart.push({ id, name, price });
-
-      updateCart();
+      tabContents.forEach(content => {
+        content.classList.remove('active');
+        if (content.id === targetId) {
+          content.classList.add('active');
+        }
+      });
     });
   });
 
-  document.getElementById('checkout-btn').addEventListener('click', () => {
-    alert('Pedido finalizado com sucesso!');
-    // Limpa o carrinho
+  let jogoIdAtual = null;
+
+  document.querySelectorAll('.jogo').forEach(jogo => {
+    jogo.addEventListener('click', function () {
+      jogoIdAtual = this.getAttribute('data-id');
+      const jogoTitulo = this.querySelector('h3').textContent;
+      const jogoPreco = this.querySelector('p').textContent;
+      document.querySelector('#jogoSelecionado').textContent = `Você selecionou: ${jogoTitulo} - ${jogoPreco}`;
+      document.querySelector('#comprar').style.display = 'block';
+    });
+  });
+
+  document.getElementById('paymentForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    alert('Compra finalizada com sucesso!');
+    document.querySelector('#comprar').style.display = 'none';
+  });
+});
+
+document.getElementById('loginForm').addEventListener('submit', function (event) {
+  event.preventDefault(); // Impede o envio do formulário
+
+  // Obter valores dos campos
+  const username = document.getElementById('username').value;
+  const password = document.getElementById('password').value;
+
+  // Verificar credenciais
+  if (username === 'Davi' && password === '1234') {
+    // Login bem-sucedido
+    alert('Login bem-sucedido!');
+    window.location.href = 'index.html'; // Redireciona para a página principal
+  } else {
+    // Falha no login
+    document.getElementById('error-message').textContent = 'Nome de usuário ou senha incorretos.';
+    document.getElementById('error-message').style.display = 'block';
+  }
+});
